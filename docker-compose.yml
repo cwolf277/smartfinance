@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: smartfinance-backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: sqlite:////app/data/smartfinance.db
+      MODEL_PATH: /app/data/overspend_model.joblib
+      FLASK_DEBUG: "0"
+    volumes:
+      - ./data:/app/data
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: smartfinance-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend

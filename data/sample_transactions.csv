@@ -1,0 +1,41 @@
+transaction_id,account_id,date,name,merchant_name,amount,category
+t001,acc-1001,2025-01-03,Whole Foods,Whole Foods,87.42,Groceries
+t002,acc-1001,2025-01-05,Shell Gas,Shell,42.10,Transportation
+t003,acc-1001,2025-01-08,Netflix,Netflix,15.99,Entertainment
+t004,acc-1001,2025-01-12,Starbucks,Starbucks,6.75,Food and Drink
+t005,acc-1001,2025-01-15,Amazon,Amazon,124.30,Shopping
+t006,acc-1001,2025-01-18,Costco,Costco,210.00,Groceries
+t007,acc-1001,2025-01-22,Uber,Uber,18.50,Transportation
+t008,acc-1001,2025-01-28,Spotify,Spotify,9.99,Entertainment
+t009,acc-1001,2025-02-02,Whole Foods,Whole Foods,92.10,Groceries
+t010,acc-1001,2025-02-04,Shell Gas,Shell,38.75,Transportation
+t011,acc-1001,2025-02-07,Apple Store,Apple,899.00,Shopping
+t012,acc-1001,2025-02-11,Olive Garden,Olive Garden,56.20,Food and Drink
+t013,acc-1001,2025-02-14,Hilton,Hilton,420.00,Travel
+t014,acc-1001,2025-02-18,Trader Joes,Trader Joes,68.40,Groceries
+t015,acc-1001,2025-02-23,Lyft,Lyft,22.30,Transportation
+t016,acc-1001,2025-03-01,Whole Foods,Whole Foods,75.20,Groceries
+t017,acc-1001,2025-03-03,Chevron,Chevron,45.00,Transportation
+t018,acc-1001,2025-03-06,Best Buy,Best Buy,329.99,Shopping
+t019,acc-1001,2025-03-09,Chipotle,Chipotle,12.45,Food and Drink
+t020,acc-1001,2025-03-12,Hulu,Hulu,11.99,Entertainment
+t021,acc-1001,2025-03-15,Costco,Costco,182.50,Groceries
+t022,acc-1001,2025-03-19,Uber,Uber,15.20,Transportation
+t023,acc-1001,2025-03-23,Target,Target,98.30,Shopping
+t024,acc-1001,2025-03-28,Whole Foods,Whole Foods,103.40,Groceries
+t025,acc-1001,2025-04-02,Shell Gas,Shell,40.10,Transportation
+t026,acc-1001,2025-04-05,Netflix,Netflix,15.99,Entertainment
+t027,acc-1001,2025-04-09,Amazon,Amazon,67.80,Shopping
+t028,acc-1001,2025-04-12,Trader Joes,Trader Joes,58.90,Groceries
+t029,acc-1001,2025-04-16,Lyft,Lyft,19.50,Transportation
+t030,acc-1001,2025-04-21,Marriott,Marriott,520.00,Travel
+t031,acc-1001,2025-04-25,Whole Foods,Whole Foods,82.30,Groceries
+t032,acc-1001,2025-04-29,Apple Store,Apple,1299.00,Shopping
+t033,acc-1001,2025-05-02,Whole Foods,Whole Foods,91.10,Groceries
+t034,acc-1001,2025-05-05,Chevron,Chevron,42.40,Transportation
+t035,acc-1001,2025-05-09,Starbucks,Starbucks,8.50,Food and Drink
+t036,acc-1001,2025-05-13,Spotify,Spotify,9.99,Entertainment
+t037,acc-1001,2025-05-17,Costco,Costco,198.00,Groceries
+t038,acc-1001,2025-05-21,Uber,Uber,17.30,Transportation
+t039,acc-1001,2025-05-25,Best Buy,Best Buy,189.99,Shopping
+t040,acc-1001,2025-05-29,Olive Garden,Olive Garden,62.10,Food and Drink
