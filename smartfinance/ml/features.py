@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 FEATURE_COLUMNS = [
     "monthly_spend",

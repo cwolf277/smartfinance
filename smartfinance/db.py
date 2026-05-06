@@ -61,7 +61,12 @@ def save_transactions(txns: Iterable[Dict[str, Any]]) -> int:
     try:
         for t in txns:
             categories = t.get("category") or []
-            category = categories[0] if isinstance(categories, list) and categories else (categories if isinstance(categories, str) else None)
+            if isinstance(categories, list) and categories:
+                category = categories[0]
+            elif isinstance(categories, str):
+                category = categories
+            else:
+                category = None
             row = Transaction(
                 transaction_id=str(t.get("transaction_id") or t.get("id") or f"manual-{count}"),
                 account_id=str(t.get("account_id", "")),

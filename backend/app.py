@@ -4,27 +4,27 @@ import traceback
 from datetime import date, timedelta
 from pathlib import Path
 
-from flask import Flask, request, jsonify
-from flask_cors import CORS
-
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from smartfinance.config import get_config
-from smartfinance.db import init_db, save_transactions, fetch_transactions
-from smartfinance.etl.pipeline import run_pipeline
-from smartfinance.ml.predict import predict_overspend
-from smartfinance.ml.model import train_overspend_model
-from smartfinance.utils.masking import mask_transactions
+from flask import Flask, request, jsonify  # noqa: E402
+from flask_cors import CORS  # noqa: E402
 
-from plaid.model.link_token_create_request import LinkTokenCreateRequest
-from plaid.model.link_token_create_request_user import LinkTokenCreateRequestUser
-from plaid.model.products import Products
-from plaid.model.country_code import CountryCode
-from plaid.model.item_public_token_exchange_request import ItemPublicTokenExchangeRequest
-from plaid.model.transactions_get_request import TransactionsGetRequest
-from plaid.model.transactions_get_request_options import TransactionsGetRequestOptions
+from smartfinance.config import get_config  # noqa: E402
+from smartfinance.db import init_db, save_transactions, fetch_transactions  # noqa: E402
+from smartfinance.etl.pipeline import run_pipeline  # noqa: E402
+from smartfinance.ml.predict import predict_overspend  # noqa: E402
+from smartfinance.ml.model import train_overspend_model  # noqa: E402
+from smartfinance.utils.masking import mask_transactions  # noqa: E402
 
-from backend.plaid_config import plaid_client
+from plaid.model.link_token_create_request import LinkTokenCreateRequest  # noqa: E402
+from plaid.model.link_token_create_request_user import LinkTokenCreateRequestUser  # noqa: E402
+from plaid.model.products import Products  # noqa: E402
+from plaid.model.country_code import CountryCode  # noqa: E402
+from plaid.model.item_public_token_exchange_request import ItemPublicTokenExchangeRequest  # noqa: E402
+from plaid.model.transactions_get_request import TransactionsGetRequest  # noqa: E402
+from plaid.model.transactions_get_request_options import TransactionsGetRequestOptions  # noqa: E402
+
+from backend.plaid_config import plaid_client  # noqa: E402
 
 
 def create_app(config=None):
@@ -113,7 +113,8 @@ def create_app(config=None):
     @app.route("/etl/run", methods=["POST"])
     def etl_run():
         try:
-            source = request.json.get("source", "data/sample_transactions.csv") if request.is_json else "data/sample_transactions.csv"
+            default_source = "data/sample_transactions.csv"
+            source = request.json.get("source", default_source) if request.is_json else default_source
             summary = run_pipeline(source)
             return jsonify(summary)
         except Exception as e:
