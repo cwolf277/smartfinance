@@ -1,0 +1,45 @@
+services:
+  - type: web
+    name: smartfinance-backend
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    region: oregon
+    healthCheckPath: /health
+    envVars:
+      - key: PLAID_CLIENT_ID
+        sync: false
+      - key: PLAID_SECRET
+        sync: false
+      - key: PLAID_ENV
+        value: sandbox
+      - key: DATABASE_URL
+        value: sqlite:////app/data/smartfinance.db
+      - key: MODEL_PATH
+        value: /app/data/overspend_model.joblib
+      - key: MASK_PII
+        value: "true"
+      - key: FLASK_DEBUG
+        value: "0"
+      - key: PORT
+        value: "5000"
+    disk:
+      name: smartfinance-data
+      mountPath: /app/data
+      sizeGB: 1
+
+  - type: web
+    name: smartfinance-frontend
+    runtime: static
+    plan: free
+    buildCommand: cd frontend && npm install --legacy-peer-deps && REACT_APP_API_URL=https://smartfinance-backend.onrender.com npm run build
+    staticPublishPath: ./frontend/build
+    pullRequestPreviewsEnabled: true
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

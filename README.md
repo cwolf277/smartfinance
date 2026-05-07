@@ -35,7 +35,24 @@ React (3000) ──HTTP──> Flask API (5000) ──> Plaid API
 - Docker — multi-container deployment behind nginx
 - CI — pytest + jest + lint + docker build on every push
 
-## Quick start
+## Run it in the cloud
+
+### GitHub Codespaces (zero-setup, browser only)
+
+[![Open in Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/cwolf277/smartfinance)
+
+Click the badge → `Create codespace on main`. The devcontainer auto-installs deps and starts both servers. The frontend opens in the Ports tab once it's ready (~3 min first time).
+
+To pre-fill Plaid keys, set them as Codespaces secrets:
+**Settings → Codespaces → New repository secret** → add `PLAID_CLIENT_ID` and `PLAID_SECRET`.
+
+### Render (one-click public deployment)
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/cwolf277/smartfinance)
+
+The repo includes `render.yaml` (Blueprint) provisioning the Flask backend and React frontend as separate services. Backend uses a 1GB persistent disk for the SQLite DB. Add your Plaid keys as environment variables in the Render dashboard after the first deploy.
+
+## Run it locally
 
 ### 1. Clone
 

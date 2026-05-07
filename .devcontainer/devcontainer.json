@@ -1,0 +1,34 @@
+{
+  "name": "SmartFinance",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    }
+  },
+  "forwardPorts": [3000, 5000],
+  "portsAttributes": {
+    "3000": { "label": "Frontend (React)", "onAutoForward": "openPreview" },
+    "5000": { "label": "Backend (Flask)", "onAutoForward": "silent" }
+  },
+  "postCreateCommand": "bash .devcontainer/postCreate.sh",
+  "postStartCommand": "bash .devcontainer/postStart.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.flake8",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.testing.pytestEnabled": true,
+        "python.testing.pytestArgs": ["tests"]
+      }
+    }
+  },
+  "remoteEnv": {
+    "REACT_APP_API_URL": "https://${localEnvCODESPACE_NAME}-5000.app.github.dev"
+  }
+}
