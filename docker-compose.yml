@@ -26,3 +26,15 @@ services:
       - "3000:80"
     depends_on:
       - backend
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    container_name: smartfinance-streamlit
+    ports:
+      - "8501:8501"
+    environment:
+      API_BASE: http://backend:5000
+    depends_on:
+      - backend

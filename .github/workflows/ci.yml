@@ -60,3 +60,5 @@ jobs:
         run: docker build -t smartfinance-backend:ci .
       - name: Build frontend image
         run: docker build -t smartfinance-frontend:ci ./frontend
+      - name: Build streamlit image
+        run: docker build -t smartfinance-streamlit:ci -f Dockerfile.streamlit .

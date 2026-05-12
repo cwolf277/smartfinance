@@ -7,6 +7,7 @@ Full-stack personal finance dashboard with Plaid integration, transaction analyt
 | Layer | Tech |
 |-------|------|
 | Frontend | React 18, React Router, Chart.js, react-plaid-link |
+| Analytics UI | Streamlit + Plotly (alternative dashboard) |
 | Backend | Flask, Flask-CORS, Plaid Python SDK, Gunicorn |
 | Data | SQLAlchemy + SQLite (default), pandas |
 | ML | scikit-learn (logistic regression), joblib |
@@ -87,6 +88,15 @@ npm start
 # UI on http://localhost:3000
 ```
 
+### 4b. Streamlit dashboard (optional, alternative UI)
+
+```bash
+streamlit run smartfinance/ui/streamlit_app.py
+# Streamlit on http://localhost:8501
+```
+
+The Streamlit app reads from the same Flask API. Set `API_BASE` env var if the backend is on a different host.
+
 ### 5. Load sample data
 
 In the UI, go to **Transactions → Run ETL on sample data**, or:
@@ -108,7 +118,9 @@ curl -X POST http://localhost:5000/ml/predict -H "Content-Type: application/json
 
 ```bash
 docker-compose up --build
-# Frontend: http://localhost:3000   Backend: http://localhost:5000
+# Frontend: http://localhost:3000
+# Streamlit: http://localhost:8501
+# Backend:  http://localhost:5000
 ```
 
 ## API
